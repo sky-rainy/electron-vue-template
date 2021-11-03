@@ -1,0 +1,34 @@
+@media (prefers-color-scheme: dark) {
+
+    /** 深色模式 */
+    /** 黑了，但没完全黑 */
+    body {
+        background: #333;
+        color: white;
+        user-select:none; /*控制页面文字不被选中*/
+    }
+    .prefers-color{
+        background: rgb(80, 80, 80) !important;
+        color: white !important;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+
+    /** 亮色模式 */
+    body {
+        background: #fff;
+        color: black;
+        user-select:none; /*控制页面文字不被选中*/
+    }
+    .prefers-color{
+        background: rgb(245, 245, 245) !important;
+        color: black !important;
+    }
+   .head-nav{
+        background: rgb(204, 204, 204) !important;
+   }
+   .bottom-nav{
+        background: rgb(204, 204, 204) !important;
+   }
+}
