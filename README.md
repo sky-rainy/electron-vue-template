@@ -1,84 +1,58 @@
-# Electron-Vue-template
+# Electron-Vue-template [转自作者 umbrella22](https://github.com/umbrella22/electron-vue-template)
+# 我修改了些代码和原代码不一致，仅供参考，请star[umbrella22](https://github.com/umbrella22/electron-vue-template)
+<img src="https://github.com/sky-rainy/electron-vue-template/blob/main/src/renderer/assets/img/q.png">
+> 这是一个基于 electron 的 vue 最基本的模板，其中前端技术栈则用到 vue 全家桶，axios 作为 http 请求，而本地数据库则是 nedb。现在合并了花裤衩的 vue-admin 中的东西侧栏样式是在`src/renderer/layout/components/sidebar`文件夹中,大家可以根据需求进行个性化更改.
 
-> This is a project based on electron-vue, using the elementUI, vuex, vue-router, axios technology stack. This project is divided into two branches. The master maintains the original project structure and features for dependency updates, and the SynchronizedUpdates branch. It keeps the original file structure and the code part is completely customized by me personally; it includes: a complete background management interface, nedb database package, and two complete update download methods. If you feel redundant, you can delete it yourself.
+- 因为花裤衩大大的 ELECTRON 版本已经一年没有更新了,而且 ELECTRON,vue,elementui,都已经迭代太多,刚好我司有这方面的需求,我就在 vue-electron 脚手架生成的项目基础上,将花裤衩大大的项目核心组件提取出来合并到这个项目中，在我简单的封装了 axios 和 db．以及 electron 常用的信息弹窗，错误弹窗，具体文档地址：[中文在线文档](https://umbrella22.github.io/electron-vue-template-doc/)，[国内访问地址](https://zh-sky.gitee.io/electron-vue-template-doc/)。
 
-[中文文档地址](https://github.com/umbrella22/electron-vue-template/blob/master/README_ZH.md)
-[中文在线文档](https://umbrella22.github.io/electron-vue-template-doc/)
-[国内访问地址](https://gitee.com/Zh-Sky/electron-vue-template)
-[国内文档访问地址](https://zh-sky.gitee.io/electron-vue-template-doc/)
-[vite版本](https://github.com/umbrella22/electron-vite-template)
-[vite版本（码云）](https://gitee.com/Zh-Sky/electron-vite-template)
+> **请注意，在 2021 年 4 月 13 日的更新之后，将使用 esbuild 替换 babel，如对 babel 有强需求的小伙伴请勿更新。**
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/umbrella22/electron-vue-template)
-![GitHub Repo stars](https://img.shields.io/github/stars/umbrella22/electron-vue-template)
-[![vue](https://img.shields.io/badge/vue-2.6.14-brightgreen.svg)](https://github.com/vuejs/vue)
-[![element-ui](https://img.shields.io/badge/element--ui-2.15.5-brightgreen.svg)](https://github.com/ElemeFE/element)
-[![electron](https://img.shields.io/badge/electron-12.0.13-brightgreen.svg)](https://github.com/electron/electron)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/umbrella22/electron-vue-template/blob/master/LICENSE)
+- vite 版本 [electron-vite-template](https://github.com/umbrella22/electron-vite-template)
 
-- electron of react [Electron-react-template](https://github.com/umbrella22/electron-react-template)
+- [electron-vite-template（码云）](https://gitee.com/Zh-Sky/electron-vite-template)
 
-### To run a project, you need to have **node version 14** or higher and **use yarn as your dependency management tool**
+- react 版 [Electron-react-template](https://github.com/umbrella22/electron-react-template)
 
-<p align="center">
+<div align="center" >
+  <span>测试打包状态：</span>
   <a href="https://github.com/umbrella22/electron-vue-template">
     <img src="https://github.com/umbrella22/electron-vue-template/actions/workflows/build-test.yml/badge.svg">
   </a>
-</p>
+</div>
 
-<h3 align="center">Thanks for support.</h3>
+> ### **请确保您的 node 环境是大于或等于 14**
 
-<p align="center">
-  <a href="https://www.jetbrains.com/?from=electron-vue-template" target="_blank">
-    <img width="160px" src="https://github.com/umbrella22/MCsever/blob/master/jetbrains.png">
-  </a>
-</p>
-
-
-
-#### Build Setup
+#### 如何安装
 
 ``` bash
-# install dependencies
+# 安装依赖，这里有个问题，可能ELECTRON或者postcss会由于玄学原因安装失败，此时我推荐使用cnpm安装依赖然后！删除那个node_modules包，重新npm i，这样做的原因是
+# ELECTRON只要下载了一次您自己没有清除缓存的话，就可以直接使用上次的安装包，这样通过cnpm安装完成之后，一定！要删除一次依赖包！一定哦！
+# 再使用npm安装就会使用缓存了，免去那个魔法的过程～～
+# 或者可以使用更加优秀的yarn。
+# 当然，yarn也需要配置淘宝镜像，需要将配置到系统的环境变量里
 npm install or yarn install
 
-# serve with hot reload at localhost:9080
-npm run dev or yarn dev
+# 启动之后，会在9080端口监听
+# 需要重新运行一次此命令
+npm run dev
 
-# build electron application for production
-npm run build or yarn build
+# build命令在不同系统环境中，需要的的不一样，需要自己根据自身环境进行配置
+npm run build
 
-# run unit & end-to-end tests
+# 启动单元测试模块,但是需要注意的是,我没有更新依赖,所以很可能会导致失败
 npm test
-
+# 如若实在不行无法安装electron依赖，请使用
+npm config edit
+# 该命令会打开npm的配置文件，请在空白处添加
+# registry=https://registry.npm.taobao.org/
+# electron_mirror=https://cdn.npm.taobao.org/dist/electron/
+# ELECTRON_BUILDER_BINARIES_MIRROR=http://npm.taobao.org/mirrors/electron-builder-binaries/
+# 然后关闭该窗口，重启命令行，删除node_modules文件夹，并重新安装依赖即可
 
 ```
----
-# Function list
-
-- Auto update
-- Incremental update
-- Loading animation before startup
-- i18n
-- Incremental update (wait for test)
-
-# Built-in
-
-- [vue-router](https://router.vuejs.org)
-- [vuex](https://vuex.vuejs.org)
-- [electron](http://www.electronjs.org/docs)
-- electron-updater
-- typescript
-- [element-plus](https://element.eleme.cn/#/en-US)
-
-# Note
-
-- [gitee](https://gitee.com/Zh-Sky/electron-vue-template) is only for domestic users to pull code，from github to synchronize，please visit github for PR
-- **Welcome to Issues and PR**
 
 ---
 
-This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue)@[8fae476](https://github.com/SimulatedGREG/electron-vue/tree/8fae4763e9d225d3691b627e83b9e09b56f6c935) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
-Manage interface code address [here](https://github.com/PanJiaChen/electron-vue-admin)
 
-# [CHANGELOG](CHANGELOG.md)
+
+# [更新日志](CHANGELOG.md)
