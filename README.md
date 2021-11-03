@@ -1,5 +1,5 @@
 # Electron-Vue-template [转自作者 umbrella22](https://github.com/umbrella22/electron-vue-template)
-# 我修改了些代码和原代码不一致，仅供参考，请star[umbrella22](https://github.com/umbrella22/electron-vue-template)
+# 我修改了些代码和原代码不一致，emm...重复创建多个子窗口问题哈，仅供参考，请star[umbrella22](https://github.com/umbrella22/electron-vue-template)
 <img src="https://github.com/sky-rainy/electron-vue-template/blob/main/src/renderer/assets/img/q.png">
 > 这是一个基于 electron 的 vue 最基本的模板，其中前端技术栈则用到 vue 全家桶，axios 作为 http 请求，而本地数据库则是 nedb。现在合并了花裤衩的 vue-admin 中的东西侧栏样式是在`src/renderer/layout/components/sidebar`文件夹中,大家可以根据需求进行个性化更改.
 
